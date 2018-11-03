@@ -13,6 +13,12 @@ config_version=3
 config/name="dogs_of_war"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
