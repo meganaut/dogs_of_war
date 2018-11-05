@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://DoggoTank.gd" type="Script" id=1]
+[ext_resource path="res://assets/golden1.png" type="Texture" id=2]
+[ext_resource path="res://assets/turret1.png" type="Texture" id=3]
+[ext_resource path="res://assets/tank-tread1.png" type="Texture" id=4]
+[ext_resource path="res://assets/tank-tread2.png" type="Texture" id=5]
+[ext_resource path="res://assets/tank-tread3.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "still",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "moving",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stopped",
+"speed": 5.0
+} ]
+
+[node name="DoggoTank" type="Node2D"]
+
+position = Vector2( 896, 480 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+moving = true
+backwards = false
+jiggleFrames = 10
+jigglePixels = 5
+
+[node name="Doggo" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "still"
+
+[node name="Turret" type="Sprite" parent="Doggo" index="0"]
+
+position = Vector2( 37.5256, -75.5782 )
+scale = Vector2( 0.948837, 1.15646 )
+texture = ExtResource( 3 )
+
+[node name="Treads" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 32, 160 )
+frames = SubResource( 2 )
+animation = "moving"
+
+
