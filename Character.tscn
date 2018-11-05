@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Character.gd" type="Script" id=1]
 [ext_resource path="res://DoggoTank.tscn" type="PackedScene" id=2]
@@ -6,11 +6,22 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 5.95159 )
+extents = Vector2( 20.9965, 12.7707 )
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0.0227273, 0.986364, 0.997727, 1 )
+colors = PoolColorArray( 0.265909, 0.265909, 0.265909, 1, 1, 0.0299401, 0.0299401, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
 
 [node name="Player" type="KinematicBody2D"]
 
-position = Vector2( 384, 160 )
+position = Vector2( 382.583, 163.023 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -20,18 +31,48 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collisi
 __meta__ = {
 "_edit_group_": true
 }
+chargeRate = 200
 movementSpeed = null
 
 [node name="DoggoTank" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -0.00012207, 2.99994 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 _sections_unfolded = [ "Transform" ]
+isActive = false
 
 [node name="Collider" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 1.60596, 6.42128 )
-scale = Vector2( 2.46154, 2.84117 )
+position = Vector2( 1.60596, 7.93426 )
+scale = Vector2( 2.46154, 2.79688 )
 shape = SubResource( 1 )
+
+[node name="ChargeBorder" type="Line2D" parent="." index="2"]
+
+position = Vector2( 1.50996, 0 )
+scale = Vector2( 1.02517, 1 )
+points = PoolVector2Array( 50, -70, -50, -70 )
+width = 10.0
+default_color = Color( 0, 0.166667, 1, 1 )
+texture = SubResource( 3 )
+texture_mode = 450427632
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ChargeBar" type="Line2D" parent="." index="3"]
+
+position = Vector2( 1.50998, 0 )
+scale = Vector2( 1.02517, 1 )
+points = PoolVector2Array( 48, -70, -48, -70 )
+width = 6.0
+default_color = Color( 1, 0.046875, 0, 1 )
+texture_mode = 450427632
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 

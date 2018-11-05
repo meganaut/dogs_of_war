@@ -12,6 +12,7 @@ extents = Vector2( 32.0979, 31.9999 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
+scale = Vector2( 2, 2 )
 movementSpeed = 150
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
